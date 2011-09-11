@@ -101,7 +101,14 @@
 - (void)loadTabs {
 	NSMutableArray *tabs = [NSMutableArray arrayWithCapacity:self.viewControllers.count];
 	for (UIViewController *vc in self.viewControllers) {
-		[tabs addObject:[[[BCTab alloc] initWithIconImageName:[vc iconImageName]] autorelease]];
+        if ([vc title])
+        {
+            [tabs addObject:[[[BCTab alloc] initWithIconImageName:[vc iconImageName] title:[vc title]] autorelease]];
+        }
+        else
+        {
+            [tabs addObject:[[[BCTab alloc] initWithIconImageName:[vc iconImageName]] autorelease]];
+        }
 	}
 	self.tabBar.tabs = tabs;
 	[self.tabBar setSelectedTab:[self.tabBar.tabs objectAtIndex:self.selectedIndex] animated:NO];

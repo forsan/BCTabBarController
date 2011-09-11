@@ -7,4 +7,9 @@
 	return [[self.viewControllers objectAtIndex:0] iconImageName];
 }
 
+- (NSString *)title
+{
+    return [[self.viewControllers objectAtIndex:0] title];
+}
+
 @end

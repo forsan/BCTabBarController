@@ -8,6 +8,18 @@
 @implementation BCTab
 @synthesize rightBorder, background;
 
+- (id)initWithIconImageName:(NSString *)imageName title:(NSString*)title
+{
+    self = [self initWithIconImageName:imageName];
+    if (self)
+    {
+        [self setTitle:title forState:UIControlStateNormal];
+        [self setFont:[UIFont boldSystemFontOfSize:11]];
+        [self setTitleEdgeInsets:UIEdgeInsetsMake(30, 0, 0, 0)];
+    }
+    return self;
+}
+
 - (id)initWithIconImageName:(NSString *)imageName {
 	if (self = [super init]) {
 		self.adjustsImageWhenHighlighted = NO;
